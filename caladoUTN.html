@@ -1,0 +1,642 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+
+    <meta lang="es">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width initial-scale=1">
+    <title>crustácea</title>
+    <link rel="icon" href="faviconlangosta.png" type="image/png">
+
+    <link rel="stylesheet" type="text/css" href="stylecalado.css">
+    <script src="jquery-3.6.0.js"></script>
+    <script src="script.js" defer></script>
+    <script src="sketchCALADO.js"></script>
+    <script src="hydra.js"></script>
+
+    <script src="https://unpkg.com/hydra-synth"></script>
+  
+</head>
+
+<body>
+    <script language=javascript>
+        //change 1 to another integer to alter the scroll speed. Greater is faster
+        
+        var speed=0.0075
+        var downspeed= 0.0075
+        var stopspeed= 0
+        var currentpos=0
+        var alt = 0
+        var curpos1 = 100
+        var curpos2 = 1
+        function initialize(){
+        startit()
+        }
+        function goup(e) {
+        speed = stopspeed
+        }
+        function godown(e) {
+        speed = downspeed
+        }
+        function scrollwindow(){
+        if (document.all) {
+        temp=document.body.scrollDown;
+        }
+        else {
+        temp=window.pageYOffset;
+        }
+        if (alt==0) {
+        alt=1;
+        curpos2 = temp;
+        }
+        else {
+        alt=0;
+        curpos1 = temp;
+        }
+        if ((curpos1==curpos2) && (speed > 0)) {
+        currentpos = 0;
+        curpos1 = 100;
+        }
+        else {
+        if (document.all) {
+        currentpos=document.body.scrollDown+speed;
+        }
+        else {
+        currentpos=window.pageYOffset+speed;
+        }
+        }
+        if (speed > 0) { window.scrollTo(0,currentpos); }
+        setTimeout("scrollwindow()", 70);
+        }
+        function startit(){
+        setTimeout("scrollwindow()", 70)
+        }
+        window.onload=initialize
+        // document.onmousedown = goup;
+        // document.ondblclick = godown;
+        </script>
+    
+    <div id="main">
+        <!--<h1>hydra inside a webpage</h1>-->
+        <div class="spacer"></div>
+        
+        <code>
+        
+        s1.initVideo("https://vanityfer.github.io/media/videos/espuma.mp4")   
+           
+
+        src(s1).modulate(noise(2,0.3),0.02).saturate(1.2)
+        .contrast(1.05).color(0.6,0.6,0.6)
+  .modulate(noise(2,0.05),0.05)
+  .scale(1.2).layer(noise(0.4,
+  0.1).thresh(0.09).color(0,
+  0,0).mult(gradient(0.01)
+.scale(2.5).luma()
+.contrast(0.8)
+.saturate(0.5),0.3)
+).out(o1)
+
+render(o1)
+
+        </code>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+        
+        <code>
+        
+        
+        s2.initVideo("https://enredaderas.github.io/cielo.mp4")
+        s3.initVideo("https://enredaderas.github.io/madera.mp4")
+       
+  
+        src(s2)
+        .scrollY(({time}) => Math.cos(time) * -0.008 )
+        .modulate(s2)
+        .scale(2)
+        .out(o2)
+        render(o2)
+        </code>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+        
+        <code>
+        
+            s1.initVideo("https://vanityfer.github.io/media/videos/salpica.mp4")   
+               
+    
+            src(s1).modulate(noise(2,0.3),0.02).saturate(1.2)
+            .contrast(1.05).color(0.6,0.6,0.6)
+      .modulate(noise(2,0.05),0.05)
+      .scale(1.2).layer(noise(0.4,
+      0.1).thresh(0.09).color(0,
+      0,0).mult(gradient(0.01)
+    .scale(2.5).luma()
+    .contrast(0.8)
+    .saturate(0.5),0.3)
+    ).out(o1)
+    
+    render(o1)
+    
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    
+    
+            </code>
+
+
+            <code>
+        
+        
+                s2.initVideo("https://enredaderas.github.io/cielo.mp4")
+                s3.initVideo("https://enredaderas.github.io/madera.mp4")
+               
+          
+                src(s2)
+                .scrollY(({time}) => Math.cos(time) * -0.008 )
+                .modulate(s2)
+                .scale(2)
+                .out(o2)
+                render(o2)
+                </code>
+
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+
+                <code>
+        
+                    s1.initVideo("https://vanityfer.github.io/media/videos/vidasimbiosis.mp4")   
+                       
+            
+                    src(s1).modulate(noise(2,0.3),0.02).saturate(1.2)
+                    .contrast(1.05).color(0.6,0.6,0.6)
+              .modulate(noise(2,0.05),0.05)
+              .scale(1.2).layer(noise(0.4,
+              0.1).thresh(0.09).color(0,
+              0,0).mult(gradient(0.01)
+            .scale(2.5).luma()
+            .contrast(0.8)
+            .saturate(0.5),0.3)
+            ).out(o1)
+            
+            render(o1)
+            
+                    </code>
+                
+        <div id="container">
+            <div id="marquee">
+                <ul id="letters">
+                    <li>&nbsp; CRUSTÁCEA &nbsp;</li>
+                    <li><-----</li>
+                    <li>&nbsp; CRUSTÁCEA &nbsp;</li>
+                    <li><-----</li>
+                    <li>&nbsp; CRUSTÁCEA &nbsp;</li>
+                    <li><-----</li>
+                    <li>&nbsp; CRUSTÁCEA &nbsp;</li>
+                    <li><-----</li>
+                    <li>&nbsp; CRUSTÁCEA &nbsp;</li>
+                    <li><-----</li>
+                    <li>&nbsp; CRUSTÁCEA &nbsp;</li>
+                    <li><-----</li>
+                    <li>&nbsp; CRUSTÁCEA &nbsp;</li>
+                    <li><-----</li>
+                    <li>&nbsp; CRUSTÁCEA &nbsp;</li>
+                    <li><-----</li>
+                    <li>&nbsp; CRUSTÁCEA &nbsp;</li>
+                    <li><-----</li>
+                    <li>&nbsp; CRUSTÁCEA &nbsp;</li>
+                    <li><-----</li>       
+                </ul>
+            </div>
+            
+            
+
+    <div id="marquee2">
+        <ul id="letters2">
+            <li>&nbsp; CRUSTÁCEA &nbsp;</li>
+            <li><-----</li>
+            <li>&nbsp; CRUSTÁCEA &nbsp;</li>
+            <li><-----</li>
+            <li>&nbsp; CRUSTÁCEA &nbsp;</li>
+            <li><-----</li>
+            <li>&nbsp; CRUSTÁCEA &nbsp;</li>
+            <li><-----</li>
+            <li>&nbsp; CRUSTÁCEA &nbsp;</li>
+            <li><-----</li>
+            <li>&nbsp; CRUSTÁCEA &nbsp;</li>
+            <li><-----</li>
+            <li>&nbsp; CRUSTÁCEA &nbsp;</li>
+            <li><-----</li>
+            <li>&nbsp; CRUSTÁCEA &nbsp;</li>
+            <li><-----</li>
+            <li>&nbsp; CRUSTÁCEA &nbsp;</li>
+            <li><-----</li>
+            <li>&nbsp; CRUSTÁCEA &nbsp;</li>
+            <li><-----</li>    
+         </ul>
+
+    </div>
+
+    <div class="caja">
+
+        <div class="cajainterna">
+
+            <h1>CRUSTÁCEA</h1>
+
+        </div>
+
+        <div class="cajainterna apellido">
+
+            <div class="interno1">
+                
+               <p>
+                El término terolingüística –del griego ther (θήρ), «animal salvaje»– <br>
+                designa una rama de la lingüística que se consagra a estudiar y traducir <br>
+                la producción escrita de los animales (y ulteriormente de las plantas), <br>
+                ya sea bajo la forma literaria de la novela, de la poesía, de la epopeya, <br>
+                del panfleto o incluso del archivo. Posteriormente, a medida que esta <br>
+                ciencia ha ido explorando el mundo “salvaje” han ido apareciendo otras <br>
+                formas expresivas que desbordan las categorías literarias humanas (y de <br>
+                las que se ocupan otros campos de especialización, como el de las ciencias <br>
+                cosmofónicas y paralingüísticas). 
+
+                </p> 
+            </div>
+
+        </div>
+
+        <div class="cajainterna textoerratico">
+            <p>
+                La primera aparición de la palabra terolingüística data de 1974, <br>
+                y la encontramos en un relato de anticipación de Ursula K. Le Guin <br>
+                llamado “El autor de las semillas de acacia Y otros extractos del <br>
+                Diario de la Asociación de Terolingüística”. <br><br>
+                Esa “terolingüística” puede derivar en una “teroarquitectura” (el <br>
+                estudio de los hábitats creados por los animales), y ambas remiten, a <br>
+                su vez, a la “geolingüística”, la rama mayor de ese árbol epistemológico <br>
+                que sostiene que los seres humanos no somos la única especie que ha <br>
+                logrado dar forma a una lengua dotada de estructuras originales.
+
+            </p>
+
+        </div>
+
+        <div class="cajainterna textoerratico2">
+
+            <p>
+                CHERAX <br>
+                QUADRICARINATUS
+            </p>
+
+            <img src="disecc/cherax1.png" alt="Cherax Quadricarinatus" id="cherax-img">
+
+        </div>
+        <div class="contienecaja">
+        <div class="cajainterna">
+
+            <h1> la mayor parte de los crustáceos <br>
+                no tienen lengua
+            </h1>
+        </div>
+
+        <div class="cajainterna2">
+
+            <h1> pero algo danza estridula en ellos <br>
+                hasta decir*
+            </h1>
+        </div>
+        <div class="cajainterna3">
+
+            <h3> *'decir' puede ser saborear las palabras en esos tiempos felices del lenguaje <br>
+                en que saber y sabor comparten raíz
+            </h3>
+        </div>
+        </div>
+        
+        <div class="cajainterna textoerratico3">
+
+            <p>
+                Cherax quadricarinatus es una especie de crustáceo decápodo del <br>
+                infraorden Astacidea. Se caracteriza por su tamaño considerable <br>
+                (hasta 30 cm de longitud) y su coloración variable, que puede <br>
+                incluir tonos azules, verdes e iridiscentes. Esto lo vuelve altamente <br>
+                apreciado en acuicultura, tanto por su valor comercial como por su <br>
+                atractivo estético. <br><br>
+                Una de sus características más notables es su capacidad de regenerar <br>
+                extremidades, que le permite recuperar pinzas y patas perdidas debido a <br>
+                depredación o enfrentamientos. Sin embargo, presenta un comportamiento <br>
+                caníbal, especialmente en condiciones de hacinamiento, por lo que <br>
+                requiere refugios adecuados para minimizar agresiones entre individuos<br>
+                en ambientes controlados.
+
+            </p>
+        </div>
+
+        <div class="cajainterna textoerratico4">
+            <p>
+                “Es sabido que los animales muy “adaptados” a su entorno carecen del <br>
+                desequilibrio que haría posible el surgimiento de un signo, que no tienen <br>
+                palabras para expresar esa supuesta dicha envidiada por nuestra cultura”<br>
+                (GG, Literal)
+            </p>
+
+        </div>
+        <div class="cajainterna textoerratico5">
+            <p>
+                Es posible observar tres niveles o instancias de la lengua crustácea
+                1 - Químico 
+                2 - De orilla 
+                3 - Estridular 
+
+            </p>
+
+        </div>
+        <div class="cajainterna textoerratico6">
+            <p>
+            INFORME    
+            </p>
+        </div>
+        
+        <div class="cajainterna textoerratico7">
+            <h1>
+                La edad de los metales sigue vigente<br>
+                La edad de los metales<br>
+                que hace más de ocho mil años siguió a la de piedra <br>
+                La edad de los tecnometales
+            </h1>
+        </div>
+
+        <div class="cajainterna textoerratico8">
+            <p>
+
+              DISPOSITIVOS DE TRADUCCIÓN?
+
+            </p>
+
+        </div>
+
+        <div class="cajainterna textoerratico9">
+
+            <a href="https://fernandamugica/caladoUTN.html">HOME</a>
+
+        </div>
+
+    </div>
+
+
+    
+    <div class="cajanegra">
+
+        <img src="disecc/28.png" />
+    
+
+    </div>
+    
+
+    <div class="cajanegra2">
+
+        <img src="disecc/34.png" s />
+
+    </div>
+
+    <div class="cajanegra3">
+
+        <img src="disecc/31.png" />
+
+    </div>
+
+    <div class="cajanegra4">
+
+        <img src="disecc/47.png" />
+
+    </div>
+
+    <div class="cajanegra5">
+
+        <img src="disecc/29.png" />
+
+    </div>
+
+    <div class="cajanegra6">
+
+        <img src="disecc/39.png" />
+
+    </div>
+
+    <div class="cajanegra7">
+
+        <img src="disecc/30.png" />
+
+    </div>
+
+    <div class="cajanegra8">
+
+        <img src="disecc/32.png" />
+
+    </div>
+
+    <div class="cajanegra9">
+
+        <img src="disecc/33.png" />
+
+    </div>
+
+    <div class="cajanegra10">
+
+        <img src="disecc/35.png" />
+
+    </div>
+
+    <div class="cajanegra11">
+
+        <img src="disecc/36.png" />
+
+    </div>
+
+    <div class="cajanegra12">
+
+        <img src="disecc/37.png" />
+
+    </div>
+
+    <div class="cajanegra13">
+
+        <img src="disecc/38.png" />
+
+    </div>
+
+    <script type="text/javascript">
+    $(document).ready(function () {
+        var noOfLetter = $("#letters li").length;
+        var totalLetterWidth = 0;
+
+        for(var i=0;i<noOfLetter;i++){
+            var letterWidth = $("#letters li").eq(i).outerWidth(true);
+            totalLetterWidth = totalLetterWidth + letterWidth;
+       }
+
+        $("#letters").css('width', totalLetterWidth+'px');
+
+        var speed =1;
+        animateLetters();
+
+        function animateLetters(){
+           $("#letters li").eq(0).animate({
+               'marginLeft':'-='+speed+'px'
+           },1, function(){
+               var animateLetterWidth = $(this).outerWidth(true);
+
+               if (speed >= animateLetterWidth){
+                   $(this).parent().append($(this));
+                   $(this).removeAttr('style');
+               }
+               animInterval = setTimeout(function(){
+                animateLetters(); 
+
+               })
+
+
+           });
+
+        }
+
+    });
+    
+    </script>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var noOfLetter = $("#letters2 li").length;
+        var totalLetterWidth = 0;
+
+        for(var i=0;i<noOfLetter;i++){
+            var letterWidth = $("#letters2 li").eq(i).outerWidth(true);
+            totalLetterWidth = totalLetterWidth + letterWidth;
+        }
+
+        $("#letters2").css('width', totalLetterWidth+'px');
+
+        var speed =1;
+        animateLetters();
+
+        function animateLetters(){
+           $("#letters2 li").eq(0).animate({
+               'marginLeft':'-='+speed+'px'
+           },1, function(){
+               var animateLetterWidth = $(this).outerWidth(true);
+
+               if (speed >= animateLetterWidth){
+                   $(this).parent().append($(this));
+                   $(this).removeAttr('style');
+               }
+               animInterval = setTimeout(function(){
+                animateLetters(); 
+
+               })
+
+
+           });
+
+        }
+
+    });
+    
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $(document).on('scroll', function () {
+                var velo1 = Math.max(1 - 0.35 * window.scrollY);
+                $('.caja').css("left", velo1 + "px");
+                console.log(velo1);
+
+
+                var velo2 = Math.max(1 - 0.57 * window.scrollY);
+                $('.cajanegra').css("left", velo2 + "px");
+
+
+                var velo3 = Math.max(1 - 0.84 * window.scrollY);
+                $('.cajanegra2').css("left", velo3 + "px");
+
+                var velo4 = Math.max(1 - 0.2 * window.scrollY);
+                $('.cajanegra3').css("left", velo4 + "px");
+
+                var velo5 = Math.max(1 - 0.16 * window.scrollY);
+                $('.cajanegra4').css("left", velo5 + "px");
+
+                var velo6 = Math.max(1 - 0.39 * window.scrollY);
+                $('.cajanegra5').css("left", velo6 + "px");
+
+                var velo7 = Math.max(1 - 0.06 * window.scrollY);
+                $('.cajanegra6').css("left", velo7 + "px");
+
+                var velo8 = Math.max(1 - 0.058 * window.scrollY);
+                $('.cajanegra7').css("left", velo8 + "px");
+
+                var velo9 = Math.max(1 - 0.062 * window.scrollY);
+                $('.cajanegra8').css("left", velo9 + "px");
+
+                var velo10 = Math.max(1 - 0.07 * window.scrollY);
+                $('.cajanegra9').css("left", velo10 + "px");
+
+                var velo11 = Math.max(1 - 0.072 * window.scrollY);
+                $('.cajanegra10').css("left", velo11 + "px");
+
+                var velo12 = Math.max(1 - 0.08 * window.scrollY);
+                $('.cajanegra11').css("left", velo12 + "px");
+
+                var velo13 = Math.max(1 - 0.05 * window.scrollY);
+                $('.cajanegra12').css("left", velo13 + "px");
+
+                var velo14 = Math.max(1 - 0.047 * window.scrollY);
+                $('.cajanegra13').css("left", velo14 + "px");
+
+
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>
