@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sketch con p5.js</title>
+  <!-- Enlace a la biblioteca p5.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden; /* Esto asegura que no haya barras de desplazamiento */
+    }
+  </style>
+  <link rel="icon" href="faviconlangosta.png" type="image/png">
+</head>
+<body>
+  <script>
+let img;
+
+function preload() {
+  img = loadImage('disecc/LINDA.jpg'); // Cambia esto por el nombre de tu imagen cargada
+}
+
+function setup() {
+  createCanvas(800, 600);
+  img.loadPixels(); // Carga los píxeles de la imagen
+  
+  // Aplica el filtro turquesa a cada píxel
+  for (let i = 0; i < img.pixels.length; i += 4) {
+    let r = img.pixels[i];     // Rojo
+    let g = img.pixels[i + 1]; // Verde
+    let b = img.pixels[i + 2]; // Azul
+
+    // Aplicamos un filtro turquesa
+    img.pixels[i] = r * 0.2 + g * 0.4 + b * 0.4; // Rojo
+    img.pixels[i + 1] = r * 0.1 + g * 0.7 + b * 0.2; // Verde
+    img.pixels[i + 2] = r * 0.1 + g * 0.3 + b * 0.6; // Azul
+  }
+  
+  img.updatePixels(); // Actualiza los píxeles de la imagen
+}
+
+function draw() {
+  background(255);
+  image(img, 0, 0, width, height); // Dibuja la imagen en el lienzo
+}
+
+  </script>
+</body>
+</html>
