@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crustácea</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hydra-synth/1.5.7/hydra-synth.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      height: 100vh;
+      background: black;
+    }
+    #hydra-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+    }
+    #content {
+      width: 60%;
+      height: 100%;
+    }
+    #instructions {
+      width: 30%;
+      color: white;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+  </style>
+  <link rel="icon" href="faviconlangosta.png" type="image/png">
+</head>
+<body>
+  <div id="hydra-container"></div>
+  <div id="content">
+    <script>
+      let images = {};
+      let currentImages = [];
+      let backgroundImg;
+      const alphabet = 'abcdefghijklmnñopqrstuvwxyz0123456789[]-.,+{}';
+      const radius = 300;
+
+      function preload() {
+        alphabet.split('').forEach((letter, index) => {
+          images[letter] = loadImage('disecc/' + (index + 1) + '.png');
+        });
+        backgroundImg = loadImage('disecc/fondo.png');
+      }
+
+      function setup() {
+        createCanvas(windowWidth * 0.6, windowHeight);
+      }
+
+      function draw() {
+        image(backgroundImg, 0, 0, width, height);
+        currentImages.forEach(img => {
+          image(img.img, img.x, img.y);
+        });
+      }
+
+      function keyPressed() {
+        let letter = key.toLowerCase();
+        if (images[letter]) {
+          let angle = random(TWO_PI);
+          let distance = random(radius);
+          let x = (width / 2) + cos(angle) * distance - images[letter].width / 2;
+          let y = (height / 2) + sin(angle) * distance - images[letter].height / 2;
+          currentImages.push({img: images[letter], x: x, y: y});
+        }
+      }
+
+      function windowResized() {
+        resizeCanvas(windowWidth * 0.6, windowHeight);
+      }
+    </script>
+  </div>
+  <div id="instructions">
+    <h2>Instrucciones</h2>
+    <p>Presiona cualquier tecla para generar una imagen asociada en pantalla.</p>
+    <p>Las imágenes aparecerán distribuidas en un radio alrededor del centro.</p>
+  </div>
+  <script>
+    let hydra = new Hydra({ detectAudio: false });
+    osc(10, 0.1, 1.2)
+      .color(0.8, 0.3, 0.5)
+      .rotate(0.3)
+      .modulate(osc(6).rotate(0.1))
+      .out();
+  </script>
+</body>
+</html>

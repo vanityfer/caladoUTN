@@ -1,0 +1,49 @@
+<!--.scrollY(({time}) => Math.cos(time) * -0.008 )
+        .modulate(s1)
+        .scale(2)
+        .out(o1)-->
+
+        s0.initVideo("https://enredaderas.github.io/cielo.mp4")  <!--cielo, madera, rumbo.mp4-->
+        s3.initVideo("https://enredaderas.github.io/madera.mp4")
+        s2.initVideo("https://enredaderas.github.io/rumbo.mp4")
+  
+
+
+
+
+        s1.initVideo("https://vanityfer.github.io/media/videos/salpica.mp4")   
+               
+    
+        src(s1).modulate(noise(2,0.3),0.02).saturate(1.2)
+        .contrast(1.05).color(0.6,0.6,0.6)
+  .modulate(noise(2,0.05),0.05)
+  .scale(1.2).layer(noise(0.4,
+  0.1).thresh(0.09).color(0,
+  0,0).mult(gradient(0.01)
+.scale(2.5).luma()
+.contrast(0.8)
+.saturate(0.5),0.3)
+).out(o1)
+
+render(o1)
+
+s1.initVideo("https://vanityfer.github.io/media/videos/salpica.mp4")   
+               
+  esto está bueno para una de las paginas solas mar plateado 
+  
+  
+src(s1).modulate(noise(2,0.3),0.02).saturate(1.2)
+.contrast(1.05).color(0.6,0.6,0.6)
+.modulate(noise(2,0.05),0.05)
+.scale(1.2).layer(noise(0.4,
+0.1).thresh(0.09).color(0,
+0,0).mult(gradient(0.01)
+.scale(2.5).luma()
+.contrast(0.8)
+.colorama(0.1)
+.saturate(0.5),0.3)
+.modulate(voronoi(8, 0.2).brightness(-0.5), 0.02)
+.mask(src(s1).luma(0.4))
+).out(o1)
+
+render(o1)

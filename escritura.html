@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>crustácea</title>
+    <style>
+
+        @font-face{font-family:chida; src: url('SyneMono-Regular.ttf') format('truetype');}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: chida;
+            color: white;
+            overflow: hidden;
+        }
+        /* Fondo con Hydra.js */
+        #hydra-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        /* Contenedor principal */
+        .contenedor {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+        }
+        /* Pantalla del alfabeto */
+        .pantalla {
+            padding-left: 3%;
+            padding-right: 5%;
+            width: 50vw;
+            max-width: 800px;
+            height: 60vh;
+            max-height: 600px;
+            background: #3a3a3a; /* Gris menos saturado */
+            background-image: radial-gradient(rgba(255, 255, 255, 0.1) 10%, transparent 80%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            position: relative;
+            z-index: 1;
+        }
+        canvas {
+            width: 100%;
+            height: 100%;
+        }
+        /* Instrucciones */
+        .instrucciones {
+            
+            font-family:chida; 
+          width: 30vw;
+            max-width: 400px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+    <link rel="icon" href="faviconlangosta.png" type="image/png"> 
+    <script src="https://unpkg.com/hydra-synth"></script>
+</head>
+<body>
+    <canvas id="hydra-canvas"></canvas>
+    <script>
+        var hydra = new Hydra({ detectAudio: false, canvas: document.getElementById('hydra-canvas') })
+        s1.initVideo("https://vanityfer.github.io/media/videos/espuma.mp4")
+        src(s1).modulate(noise(2,0.3),0.02).saturate(1.2)
+        .contrast(1.05).color(0.6,0.6,0.6)
+        .modulate(noise(2,0.05),0.05)
+        .scale(1.2).layer(noise(0.4,
+        0.1).thresh(0.09).color(0,
+        0,0).mult(gradient(0.01)
+        .scale(2.5).luma()
+        .contrast(0.8)
+        .saturate(0.5),0.3)
+        ).out(o1)
+        render(o1)
+    </script>
+    <div class="contenedor">
+        <div class="pantalla">
+            <canvas id="canvas" width="800" height="600"></canvas>
+        </div>
+        <div class="instrucciones">
+            <h2>Instrucciones</h2>
+            <p>Presiona las letras del teclado para escribir en crustáceo. <br>
+            Si presionas una tecla durante un rato, se producirá un fenómeno de arribazón en la lengua. </p>
+        </div>
+    </div>
+    <script src="scriptura.js"></script>
+</body>
+</html>

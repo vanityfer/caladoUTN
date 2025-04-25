@@ -8,13 +8,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width initial-scale=1">
-    <title>CRUSTÁCEA</title>
+    <title>crustácea</title>
     <link rel="icon" href="faviconlangosta.png" type="image/png">
 
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="stylecalado.css">
     <script src="jquery-3.6.0.js"></script>
     <script src="script.js" defer></script>
-    <script src="sketch.js"></script>
+    <script src="sketchCALADO.js"></script>
     <script src="hydra.js"></script>
 
     <script src="https://unpkg.com/hydra-synth"></script>
@@ -113,6 +113,7 @@ render(o1)
         <div class="spacer"></div>
         <div class="spacer"></div>
         <div class="spacer"></div>
+        <div class="spacer"></div>
         
         <code>
         
@@ -159,7 +160,67 @@ render(o1)
     
     render(o1)
     
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    
+    
             </code>
+
+
+            <code>
+        
+        
+                s2.initVideo("https://enredaderas.github.io/cielo.mp4")
+                s3.initVideo("https://enredaderas.github.io/madera.mp4")
+               
+          
+                src(s2)
+                .scrollY(({time}) => Math.cos(time) * -0.008 )
+                .modulate(s2)
+                .scale(2)
+                .out(o2)
+                render(o2)
+                </code>
+
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+
+                <code>
+        
+                    s1.initVideo("https://vanityfer.github.io/media/videos/vidasimbiosis.mp4")   
+                       
+            
+                    src(s1).modulate(noise(2,0.3),0.02).saturate(1.2)
+                    .contrast(1.05).color(0.6,0.6,0.6)
+              .modulate(noise(2,0.05),0.05)
+              .scale(1.2).layer(noise(0.4,
+              0.1).thresh(0.09).color(0,
+              0,0).mult(gradient(0.01)
+            .scale(2.5).luma()
+            .contrast(0.8)
+            .saturate(0.5),0.3)
+            ).out(o1)
+            
+            render(o1)
+            
+                    </code>
+                
         <div id="container">
             <div id="marquee">
                 <ul id="letters">
@@ -227,16 +288,15 @@ render(o1)
             <div class="interno1">
                 
                <p>
-                    En medio de un bosque de estalactitas en la cueva de Ralph <br>
-                    (en la isla Abaco)<br>
-                    Brian Kakuk alumbra con su linterna una estalagmita translúcida<br><br>
-                    Durante los períodos en que el nivel del mar fue más bajo<br>
-                    y las cuevas se secaron<br>
-                    se formaron estalagmitas y estalactitas<br>
-                    que en ocasiones se unieron y formaron columnas<br><br>
-                    Brian aprovecha estas formaciones<br><br>
-                    Para bucear entre las rocas<br><br>
-                    Y encontrar misterios geológicos
+                El término terolingüística –del griego ther (θήρ), «animal salvaje»– <br>
+                designa una rama de la lingüística que se consagra a estudiar y traducir <br>
+                la producción escrita de los animales (y ulteriormente de las plantas), <br>
+                ya sea bajo la forma literaria de la novela, de la poesía, de la epopeya, <br>
+                del panfleto o incluso del archivo. Posteriormente, a medida que esta <br>
+                ciencia ha ido explorando el mundo “salvaje” han ido apareciendo otras <br>
+                formas expresivas que desbordan las categorías literarias humanas (y de <br>
+                las que se ocupan otros campos de especialización, como el de las ciencias <br>
+                cosmofónicas y paralingüísticas). 
 
                 </p> 
             </div>
@@ -245,20 +305,15 @@ render(o1)
 
         <div class="cajainterna textoerratico">
             <p>
-                Queremos entender el color en todas las cosas <br>
-                Desde las piedras que brillan <br>
-                Hasta los peces que nadan en las peceras <br> <br>
-
-                El color evoca toda clase de emociones <br> <br>
-
-                (Una vez que compré una muy cara <br>
-                y era falsa) <br> <br>
-
-                Hay personas tan dedicadas a su objetivo <br>
-                Que quitan todos los muebles de su casa <br>
-                Y lo convierten en un laboratorio especializado en gemas y minerales<br><br>
-                Afuera el sofá<br>
-                Adentro el espectrómetro de Raman
+                La primera aparición de la palabra terolingüística data de 1974, <br>
+                y la encontramos en un relato de anticipación de Ursula K. Le Guin <br>
+                llamado “El autor de las semillas de acacia Y otros extractos del <br>
+                Diario de la Asociación de Terolingüística”. <br><br>
+                Esa “terolingüística” puede derivar en una “teroarquitectura” (el <br>
+                estudio de los hábitats creados por los animales), y ambas remiten, a <br>
+                su vez, a la “geolingüística”, la rama mayor de ese árbol epistemológico <br>
+                que sostiene que los seres humanos no somos la única especie que ha <br>
+                logrado dar forma a una lengua dotada de estructuras originales.
 
             </p>
 
@@ -267,81 +322,76 @@ render(o1)
         <div class="cajainterna textoerratico2">
 
             <p>
-                El color aparente de un mineral <br>
-                puede variar debido a trazas de impurezas
-
+                CHERAX <br>
+                QUADRICARINATUS
             </p>
 
-        </div>
+            <img src="disecc/cherax1.png" alt="Cherax Quadricarinatus" id="cherax-img">
 
+        </div>
+        <div class="contienecaja">
         <div class="cajainterna">
 
-            <h1>(pequeñas cantidades)
+            <h1> la mayor parte de los crustáceos <br>
+                no tienen lengua
             </h1>
         </div>
 
+        <div class="cajainterna2">
+
+            <h1> pero algo danza estridula en ellos <br>
+                hasta decir*
+            </h1>
+        </div>
+        <div class="cajainterna3">
+
+            <h3> *'decir' puede ser saborear las palabras en esos tiempos felices del lenguaje <br>
+                en que saber y sabor comparten raíz
+            </h3>
+        </div>
+        </div>
+        
         <div class="cajainterna textoerratico3">
 
             <p>
-                Se rompe en cristales microscópicos orientados al azar<br>
-                (reduciendo el efecto) <br><br>
-                Una de las propiedades físicas más importantes que refleja la naturaleza de la interacción<br>
-                (moléculas e iones de los cristales)<br><br>
-                El color<br>
-                es una de las principales propiedades de los compuestos naturales<br>
-                El color de gemas y piedras
-                El color de los minerales en los cristales individuales
-                <br>y los grumos de mineral<br>
-                el color de los minerales en las secciones delgadas transparentes<br><br>
-                (bajo el microscopio) <br><br>
-                Se están desarrollando métodos<br>
-                para una evaluación objetiva<br>
-                Pero hasta ahora los geólogos<br>
-                están más interesados<br>
-                en la búsqueda de minerales para la industria
+                Cherax quadricarinatus es una especie de crustáceo decápodo del <br>
+                infraorden Astacidea. Se caracteriza por su tamaño considerable <br>
+                (hasta 30 cm de longitud) y su coloración variable, que puede <br>
+                incluir tonos azules, verdes e iridiscentes. Esto lo vuelve altamente <br>
+                apreciado en acuicultura, tanto por su valor comercial como por su <br>
+                atractivo estético. <br><br>
+                Una de sus características más notables es su capacidad de regenerar <br>
+                extremidades, que le permite recuperar pinzas y patas perdidas debido a <br>
+                depredación o enfrentamientos. Sin embargo, presenta un comportamiento <br>
+                caníbal, especialmente en condiciones de hacinamiento, por lo que <br>
+                requiere refugios adecuados para minimizar agresiones entre individuos<br>
+                en ambientes controlados.
+
             </p>
         </div>
 
         <div class="cajainterna textoerratico4">
             <p>
-                Paradójicamente<br>
-                los desechos de una era pueden ser el tesoro de otra<br><br>
-                Los llamados minerales raros<br>
-                podrían encontrarse en tierras desechadas hace siglos<br><br>
-                (los minerales no abundan)<br><br>
-                El Norte agotó sus recursos naturales<br>
-                más allá de sus fronteras<br>
-                y no tiene intenciones de abandonar<br><br>
-                (derroche y consumismo)<br><br>
+                “Es sabido que los animales muy “adaptados” a su entorno carecen del <br>
+                desequilibrio que haría posible el surgimiento de un signo, que no tienen <br>
+                palabras para expresar esa supuesta dicha envidiada por nuestra cultura”<br>
+                (GG, Literal)
             </p>
+
         </div>
         <div class="cajainterna textoerratico5">
             <p>
-                La industria minera ideó un método<br><br>
-                Primero detecta de manera satelital los yacimientos <br><br>
-
-                (aquellos sitios donde hay más concentración de minerales<br>
-                generalmente diseminados en extensiones kilométricas<br>
-                y por supuesto polimetálicos)<br><br>
-                Y luego aplica un cóctel de sustancias químicas que le permite<br>
-                atrapar el mineral<br>
-                sin importarle secar acuíferos<br>
-                desviar ríos<br>
-                destruir glaciares y volar montañas<br><br>
-                Con promiscuidad dinamitera a cielo abierto
+                Es posible observar tres niveles o instancias de la lengua crustácea
+                1 - Químico 
+                2 - De orilla 
+                3 - Estridular 
 
             </p>
 
         </div>
         <div class="cajainterna textoerratico6">
             <p>
-                Estamos tan acostumbrados<br>
-                a ver todo tipo de minerales en nuestro día a día<br>
-                que no nos paramos a pensar en los secretos que guardan<br>
-                Aunque solemos contemplarlos con fascinación algunos de ellos pueden ser mortales <br><br>
-                Un mal descubrimiento <br>
-                podría acabar con la humanidad Lanzando gas venenoso por los aires<br>
-                y oscureciendo la atmósfera con radioactividad
+            INFORME    
             </p>
         </div>
         
@@ -357,13 +407,7 @@ render(o1)
         <div class="cajainterna textoerratico8">
             <p>
 
-                Ya en el siglo XVI el alquimista Paracelso sostenía que «sólo la <br>
-                dosis hace el veneno» <br><br>
-
-                La muerte está repleta de minerales vivos <br><br>
-
-                El carbono nunca está feliz<br>
-                Siempre está intentando encontrar otra configuración
+              DISPOSITIVOS DE TRADUCCIÓN?
 
             </p>
 
@@ -371,7 +415,7 @@ render(o1)
 
         <div class="cajainterna textoerratico9">
 
-            <a href="TECNOMINERALIAindex.html">HOME</a>
+            <a href="https://fernandamugica.com/caladoUTN.html">HOME</a>
 
         </div>
 
@@ -560,7 +604,7 @@ render(o1)
                 var velo5 = Math.max(1 - 0.16 * window.scrollY);
                 $('.cajanegra4').css("left", velo5 + "px");
 
-                var velo6 = Math.max(1 - 0.09 * window.scrollY);
+                var velo6 = Math.max(1 - 0.39 * window.scrollY);
                 $('.cajanegra5').css("left", velo6 + "px");
 
                 var velo7 = Math.max(1 - 0.06 * window.scrollY);

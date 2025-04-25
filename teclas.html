@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crustácea</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden; /* Evitar barras de desplazamiento */
+    }
+  </style>
+  <link rel="icon" href="faviconlangosta.png" type="image/png">
+</head>
+<body>
+  <script>
+    let images = {};  // Objeto para almacenar las imágenes asociadas a las letras
+    let currentImages = [];  // Lista para almacenar las imágenes que deben permanecer en pantalla
+    let backgroundImg;  // Variable para la imagen de fondo
+    const alphabet = 'abcdefghijklmnñopqrstuvwxyz0123456789[]-.,+{}';  // Alfabeto español
+    const radius = 300;  // Radio dentro del cual las imágenes aparecerán aleatoriamente
+    let isKeyPressed = false; // Estado de la tecla
+    let speed = 5; // Velocidad de generación de imágenes (cuántas se generan por segundo)
+
+    function preload() {
+      // Cargar las imágenes asociadas a cada letra del alfabeto español
+      alphabet.split('').forEach((letter, index) => {
+        let imageNumber = index + 1;  // Asigna un número a cada letra, a = 1, b = 2, etc.
+        images[letter] = loadImage('disecc/' + imageNumber + '.png'); // Reemplaza con las rutas de tus imágenes numeradas
+      });
+
+      // Cargar la imagen de fondo
+      backgroundImg = loadImage('disecc/fondo.png');  // Reemplaza con la ruta de tu imagen de fondo
+    }
+
+    function setup() {
+      createCanvas(windowWidth, windowHeight);
+    }
+
+    function draw() {
+      
+      // Mostrar la imagen de fondo
+            image(backgroundImg, 0, 0, windowWidth, windowHeight);  // Ajustar la imagen de fondo al tamaño del canvas
+
+      // Dibujar todas las imágenes que han sido activadas y almacenadas en currentImages
+      currentImages.forEach(img => {
+        image(img.img, img.x, img.y);  // Mostrar la imagen en su posición almacenada
+      });
+      
+    }
+
+    function keyPressed() {
+      let letter = key.toLowerCase();  // Convertir la tecla a minúscula para simplificar la búsqueda
+      if (images[letter]) {
+        // Generar una posición aleatoria dentro de un radio alrededor del centro de la pantalla
+        let angle = random(TWO_PI);  // Ángulo aleatorio entre 0 y 2*PI
+        let distance = random(radius);  // Distancia aleatoria dentro del radio especificado
+
+        // Convertir coordenadas polares a coordenadas cartesianas
+        let x = (windowWidth / 2) + cos(angle) * distance - images[letter].width / 2;  // X aleatorio
+        let y = (windowHeight / 2) + sin(angle) * distance - images[letter].height / 2;  // Y aleatorio
+
+        currentImages.push({img: images[letter], x: x, y: y});  // Añadir la imagen y su posición a currentImages
+        console.log(`Tecla '${letter}' presionada, mostrando imagen en (${x}, ${y})`);
+      }
+    }
+
+    function windowResized() {
+      resizeCanvas(windowWidth, windowHeight);  // Ajusta el canvas si la ventana cambia de tamaño
+    }
+  </script>
+</body>
+</html>
