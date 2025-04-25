@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crustácea</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos básicos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Configuración general */
+body {
+    font-family: 'Orbitron', sans-serif;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    gap: 1px;
+    padding: 20px;
+    
+}
+
+/* Estilo para el logo */
+.logo {
+    font-size: 2em;
+    color: #00ffff;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Contenedor principal para las columnas */
+.columns-container {
+    display: flex;
+    gap: 1px;
+    max-width: 100%;
+}
+
+/* Estilo de cada columna */
+.column {
+    width: 150px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Colores específicos para cada sección */
+.history { color: #ff0000; }   /* Rojo para "HISTORIA" */
+.language { color: #00ff00; }  /* Verde para "LENGUA" */
+.poetry { color: #0000ff; }    /* Azul para "POESÍA" */
+.video { color: #00ffff; }     /* Cian para "VIDEO" */
+
+/* Títulos de sección */
+.column h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+/* Canvas y botones */
+.contenedor-juego {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Espacio entre el canvas y los botones */
+}
+
+canvas {
+    border: 1px solid #000;
+    max-width: 100%; /* Se adapta al ancho de la pantalla */
+    max-height: 80vh; /* No excede el 80% de la altura de la ventana */
+}
+
+/* Botonera */
+.botonera {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Responsivo para pantallas pequeñas */
+@media (max-width: 768px) {
+    .columns-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .column {
+        width: 100%;
+        max-width: 250px;
+    }
+}
+
+    </style>
+    <link rel="icon" href="faviconlangosta.png" type="image/png">
+</head>
+<body>
+
+<!-- Logo -->
+<div class="logo">CRUSTÁCEA</div>
+
+<!-- Contenedor de columnas 
+<div class="columns-container">
+    <div class="column history">
+        <h2>HISTORIA</h2>
+    </div>
+    
+    <div class="column language">
+        <h2>LENGUA</h2>
+    </div>
+    
+    <div class="column poetry">
+        <h2>POESÍA</h2>
+    </div>
+    
+    <div class="column video">
+        <h2>VIDEO</h2>
+    </div>-->
+</div>
+<div class="contenedor-juego">
+    <canvas width="2048" height="1000"></canvas>
+    <div class="botonera">
+        <button onclick="limpiarTablero()">Limpiar</button>
+        <button onclick="siguientePaso()">Un paso</button>
+        <button id="botonAuto" onclick="activarAuto()">Automático</button>
+    </div>
+</div>
+
+<script src="scriptvida.js"></script>
+</body>
+</html>
