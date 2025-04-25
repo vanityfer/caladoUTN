@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Crustácea</title>
+
+    <link rel="icon" href="faviconlangosta.png" type="image/png">
+
+    
+    <link rel="stylesheet" href="stylangosta.css">
+    
+    <script src="https://unpkg.com/hydra-synth"></script>
+    
+    <script src="libraries/p5.min.js"></script>
+    <script src="libraries/p5.sound.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
+    
+    <meta charset="utf-8" />
+    
+    <!-- importar librería de rita -->
+    <script src="libraries/rita.min.js"></script>
+    <!-- importar librería de hydra -->
+    <script src="scriptlangosta.js" defer></script>
+    <!-- importar p5.js función con funciones -->
+    <script src="flores.js" type="text/javascript"></script>
+    <script src="knobs.js" type="text/javascript"></script>
+
+
+  </head>
+  <body>
+    <script language=javascript>
+    //change 1 to another integer to alter the scroll speed. Greater is faster
+    
+    var speed=0.0075
+    var downspeed= 0.0075
+    var stopspeed= 0
+    var currentpos=0
+    var alt = 0
+    var curpos1 = 100
+    var curpos2 = 1
+    function initialize(){
+    startit()
+    }
+    function goup(e) {
+    speed = stopspeed
+    }
+    function godown(e) {
+    speed = downspeed
+    }
+    function scrollwindow(){
+    if (document.all) {
+    temp=document.body.scrollDown;
+    }
+    else {
+    temp=window.pageYOffset;
+    }
+    if (alt==0) {
+    alt=1;
+    curpos2 = temp;
+    }
+    else {
+    alt=0;
+    curpos1 = temp;
+    }
+    if ((curpos1==curpos2) && (speed > 0)) {
+    currentpos = 0;
+    curpos1 = 100;
+    }
+    else {
+    if (document.all) {
+    currentpos=document.body.scrollDown+speed;
+    }
+    else {
+    currentpos=window.pageYOffset+speed;
+    }
+    }
+    if (speed > 0) { window.scrollTo(0,currentpos); }
+    setTimeout("scrollwindow()", 70);
+    }
+    function startit(){
+    setTimeout("scrollwindow()", 70)
+    }
+    window.onload=initialize
+    // document.onmousedown = goup;
+    // document.ondblclick = godown;
+    </script>
+    
+    <div id="main">
+      <!--<h1>hydra inside a webpage</h1>-->
+      <div class="spacer"></div>
+      
+      <code>
+      
+      s1.initVideo("langosta.mp4")
+      s0.initVideo("https://enredaderas.github.io/cielo.mp4")
+      s3.initVideo("https://enredaderas.github.io/madera.mp4")
+      s2.initVideo("https://enredaderas.github.io/rumbo.mp4")
+
+
+      src(s1).scale(0.5, 1.75, ()=>window.innerWidth/window.innerHeight)
+      .scrollY(({time}) => Math.cos(time) * -0.008 )
+      .modulate(s1, () => Math(time) * 0.063)
+      .scale(0.68)
+      .out(o1)
+      render(o1)
+      </code>
+      <div class="spacer"></div>
+      <div class="spacer"></div>
+      
+      <code>
+     
+      s1.initVideo("https://enredaderas.github.io/mundo.mp4")
+      
+      src(s1).scale(0.5,[1.01],()=>window.innerWidth/window.innerHeight)
+      .modulate(s1, () => 0.51)
+      .scale(0.7)
+      .out(o1)
+      render(o1)
+      
+      </code>
+      <div class="spacer"></div>
+      
+      <code>
+      
+      s0.initVideo("https://enredaderas.github.io/cielo.mp4")
+      
+      src(s0)     .scrollY(({time}) => Math.cos(time) * -0.008 )
+      .scale(0.5, 1.75, ()=>window.innerWidth/window.innerHeight)
+      .modulate(s2, () => Math(time) * 0.063)
+      .scale(0.68).brightness(0.2)
+      .out(o0)
+      render(o0)
+      </code>
+      <div class="spacer"></div>
+      <code>
+      
+      s0.initVideo("https://enredaderas.github.io/cielo.mp4")
+      
+      src(o0)
+      .modulate(
+      osc(2,0,1.5).modulate(voronoi(16).sub(gradient()),0.9)
+      .brightness(-0.5)
+      ,0.003)
+      .layer(
+      osc(3,0.5,1.5).mask(shape(4,-0.03,0))
+      ).out(o0)
+            render(o0)
+
+      </code>
+      
+      <div class="spacer"></div>
+      <code>
+      
+      s3.initVideo("https://enredaderas.github.io/madera.mp4")
+      
+      src(s3).scale(1, 2,()=>window.innerWidth/window.innerHeight)
+      .scrollX(({time}) => Math.sin(time) * 0.002 )
+      .modulate(s2, () => Math(time) * 0.063)
+      .modulateScrollY(s3, () => 0.9, -0.017)
+      .modulate(s3, () => 0.51)
+      .scale(0.88)
+      .out(o3)
+      render(o3)
+      </code>
+      <div class="spacer"></div>
+      <code>
+      
+      s2.initVideo("https://enredaderas.github.io/rumbo.mp4")
+      
+      src(s2).scale(1, 2,()=>window.innerWidth/window.innerHeight)
+      .scrollX(({time}) => Math.cos(time) * -0.008 )
+      .modulate(s2, () => Math(time) * 0.063)
+      .modulateScrollY(s2, () => 0.9, -0.037)
+      .modulate(s3, () => 0.51)
+      .scale(0.8)
+      .out(o2)
+      render(o2)
+      </code>
+      
+      
+      <div class="spacer"></div>
+      <code>
+      s0.initVideo("https://enredaderas.github.io/xalapa.mp4")
+      
+      src(s0).scale(0.5, 1.75, ()=>window.innerWidth/window.innerHeight)
+      .scrollY(({time}) => Math.cos(time) * -0.08 )
+      .scale(0.98)
+      .out(o0)
+      render(o0)
+      </code>
+      <div class="spacer"></div>
+      <div id="container">
+        <script src="sketch.js" defer></script>
+      </div>
+      <script src="./scriptlangosta.js"></script>
+    </body>
+  </html>

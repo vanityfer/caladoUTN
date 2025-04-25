@@ -1,0 +1,149 @@
+body {
+    width: 100%;
+    height: 100%;
+  /* width */
+    ::-webkit-scrollbar {
+    width: 0px;
+    }
+    /* Track */
+    ::-webkit-scrollbar-track {
+    background: black;
+    }
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+    background: black;
+    }
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+    background: black;
+    }
+    }
+
+    ::-webkit-scrollbar {
+    width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #90e0ef;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #fff0f3;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #fff0f3;
+}
+
+
+body, html {
+  font-family: 'Eczar', serif;
+  margin: 0px;
+}
+
+h1 {
+  font-style: italic;
+  color: #373fff;
+}
+
+button {
+  position: absolute;    
+  margin-top: 20px;
+    z-index: 20;
+}
+
+#p5_loading { 
+  background: #000; 
+  text-align:center; 
+  display:block; 
+  width:100%; 
+  top:50%; 
+  margin-top:-87px; 
+  margin-top:-75px; 
+  position:absolute; }
+
+
+#contenu {
+    position: relative;
+    z-index: 2;
+    margin-top: 0px !important;
+    margin-left: 0px;
+}
+
+
+
+
+/* para las propiedades de mi canvas en p5 cobran toda la pantalla*/
+#container{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  overflow-y: hidden;
+  position: fixed;
+  background-size: cover;
+}
+
+code {
+  background-color: #00000000;
+  font-family: MikadoRegular;
+  src: url("MikadoRegular.otf");
+  font-size : 13px;
+  letter-spacing: 0.7px;
+  border: solid white 0px;
+  color: #000;
+  text-align: right;
+}
+
+@font-face {
+      font-family: MikadoRegular;
+      src: url("MikadoRegular.otf");
+    }
+
+canvas {
+  overflow-y: hidden;
+  position: fixed;
+  background-size: cover;
+  top: 0px;
+  left: 0px;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+
+#main {
+  position: absolute;
+  top: -200px;
+  left: 0px;
+  z-index: 1;
+  max-width: 175px!important;
+  margin-left: 50%;
+    text-align: right;
+}
+
+
+.spacer {
+/* width: 512px; */
+height: 512px;
+position: relative;
+
+}
+
+.spacer-init {
+/* width: 512px; */
+height: 800px;
+position: relative;
+
+}
+
+.spacer-small {
+height: 233px;
+position: relative;
+}
