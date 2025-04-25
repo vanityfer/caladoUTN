@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>crustácea</title>
+    <style>
+        @font-face{font-family:chida; src: url('SyneMono-Regular.ttf') format('truetype');}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: chida;
+            color: white;
+            overflow: hidden;
+        }
+        /* Fondo con Hydra.js */
+        #hydra-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        /* Contenedor principal */
+        .contenedor {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+        }
+        /* Pantalla del alfabeto (ahora con p5.js) */
+        .pantalla {
+            
+            width: 50vw;
+            max-width: 1000px;
+            height: 60vh;
+            max-height: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            position: relative;
+            z-index: 1;
+        }
+        canvas {
+            width: 100%;
+            height: 100%;
+        }
+        /* Instrucciones */
+        .instrucciones {
+            font-family: chida;
+            width: 30vw;
+            max-width: 400px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+    <link rel="icon" href="faviconlangosta.png" type="image/png"> 
+    <script src="https://unpkg.com/hydra-synth"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+</head>
+<body>
+    <canvas id="hydra-canvas"></canvas>
+    <script>
+        var hydra = new Hydra({ detectAudio: false, canvas: document.getElementById('hydra-canvas') })
+        s1.initVideo("https://vanityfer.github.io/media/videos/espuma.mp4")
+        src(s1).modulate(noise(2,0.3),0.02).saturate(1.2)
+        .contrast(1.05).color(0.6,0.6,0.6)
+        .modulate(noise(2,0.05),0.05)
+        .scale(1.2).layer(noise(0.4,
+        0.1).thresh(0.09).color(0,
+        0,0).mult(gradient(0.01)
+        .scale(2.5).luma()
+        .contrast(0.8)
+        .saturate(0.5),0.3)
+        ).out(o1)
+        render(o1)
+    </script>
+
+    <div class="contenedor">
+        <div class="pantalla">
+            <script>
+              let images = {};  // Objeto para almacenar las imágenes asociadas a las letras
+let currentImages = [];  // Lista para almacenar las imágenes que deben permanecer en pantalla
+let backgroundImg;  // Variable para la imagen de fondo
+const alphabet = 'abcdefghijklmnñopqrstuvwxyz0123456789[]-.,+{}';  // Alfabeto español
+const radius = 6000;  // Radio dentro del cual las imágenes aparecerán aleatoriamente
+let isKeyPressed = false; // Estado de la tecla
+let speed = 5; // Velocidad de generación de imágenes (cuántas se generan por segundo)
+
+function preload() {
+    // Cargar las imágenes asociadas a cada letra del alfabeto español
+    alphabet.split('').forEach((letter, index) => {
+        let imageNumber = index + 1;  // Asigna un número a cada letra, a = 1, b = 2, etc.
+        images[letter] = loadImage('disecc/' + imageNumber + '.png'); // Reemplaza con las rutas de tus imágenes numeradas
+    });
+
+    // Cargar la imagen de fondo
+    backgroundImg = loadImage('disecc/fondo.png');  // Reemplaza con la ruta de tu imagen de fondo
+}
+
+function setup() {
+    let pantallaDiv = document.querySelector('.pantalla');
+    let canvas = createCanvas(pantallaDiv.clientWidth, pantallaDiv.clientHeight);
+    canvas.parent(pantallaDiv);
+}
+function draw() {
+
+    
+    image(backgroundImg, 0, 0, width, height);  // Ajustar imagen de fondo al canvas
+
+    // Dibujar imágenes en pantalla dentro del contenedor .pantalla
+    currentImages.forEach(img => {
+        // Usar las dimensiones originales de la imagen sin ajustarlas a 'width'
+        let imgWidth = img.img.width;
+        let imgHeight = img.img.height;
+
+        // Obtener el tamaño del contenedor .pantalla
+        let pantallaDiv = document.querySelector('.pantalla');
+        let pantallaWidth = pantallaDiv.clientWidth;
+        let pantallaHeight = pantallaDiv.clientHeight;
+
+        // Asegurarse de que las imágenes estén dentro de los límites del contenedor .pantalla
+        let x = constrain(img.x, 0, pantallaWidth - imgWidth);
+        let y = constrain(img.y, 0, pantallaHeight - imgHeight);
+
+        // Dibuja la imagen en las coordenadas ajustadas
+        image(img.img, x, y, imgWidth, imgHeight);
+    });
+}
+
+function windowResized() {
+    let pantallaDiv = document.querySelector('.pantalla');
+    resizeCanvas(pantallaDiv.clientWidth, pantallaDiv.clientHeight);
+}
+
+function keyPressed() {
+    let letter = key.toLowerCase();  
+    if (images[letter]) {
+        let img = images[letter];
+        let imgWidth = img.width || 50; 
+        let imgHeight = img.height || 50;
+
+        // Obtener el tamaño del contenedor .pantalla
+        let pantallaDiv = document.querySelector('.pantalla');
+        let pantallaWidth = pantallaDiv.clientWidth;
+        let pantallaHeight = pantallaDiv.clientHeight;
+
+        // Generar coordenadas aleatorias dentro del contenedor .pantalla
+        let x = random(pantallaWidth - imgWidth);
+        let y = random(pantallaHeight - imgHeight);
+
+        // Guardar las coordenadas
+        currentImages.push({ img, x, y });
+        console.log(`Tecla '${letter}' presionada, mostrando imagen en (${x}, ${y})`);
+    }
+}
+
+
+
+
+function windowResized() {
+    let pantallaDiv = document.querySelector('.pantalla');
+    resizeCanvas(pantallaDiv.clientWidth, pantallaDiv.clientHeight);
+}
+
+
+
+               
+            </script>
+        </div>
+
+        <div class="instrucciones">
+            <h2></h2>
+            <p> Presiona las teclas para observar los intentos fallidos de trabajar con ejemplos, habría que traer el mar. 
+                Siempre hay variación cuando se utiliza un cuadrado de texto
+                o se citan fragmentos de crustáceo en un libro. </p>
+        </div>
+    </div>
+
+    
+</body>
+</html>
